@@ -25,4 +25,4 @@ jobs:
     - name: run script
       run:  |
             echo ${{ secrets.platform }}
-            bash ./sample.bash ${{ secrets.platform }}
+            bash ./sample.sh ${{ secrets.platform }}
