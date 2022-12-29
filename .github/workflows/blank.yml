@@ -1,0 +1,28 @@
+# This is a basic workflow to help you get started with Actions
+
+name: CI
+
+# Controls when the workflow will run
+on:
+  workflow_dispatch:
+
+jobs:
+  Development:
+    name: "Run Shell script"
+    runs-on: ubuntu-latest
+    environment: dev
+    
+    defaults:
+     run:
+       shell: bash
+       working-directory: "Test"
+    steps:
+    # Checkout the repository to the GitHub Actions runner
+    - name: Checkout
+      uses: actions/checkout@v3
+      with:
+        ref: subba1
+    - name: run script
+      run:  |
+            echo ${{ secrets.platform }}
+            bash ./sample.bash ${{ secrets.platform }}
