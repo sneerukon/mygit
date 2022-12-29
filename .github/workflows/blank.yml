@@ -8,9 +8,28 @@ on:
 
 jobs:
   Development:
-    name: "Run Shell script"
+    name: "Run Shell script-dev"
     runs-on: ubuntu-latest
     environment: dev
+    
+    defaults:
+     run:
+       shell: bash
+       working-directory: "Test"
+    steps:
+    # Checkout the repository to the GitHub Actions runner
+    - name: Checkout
+      uses: actions/checkout@v3
+      with:
+        ref: subba1
+    - name: run script
+      run:  |
+            echo ${{ secrets.platform }}
+            bash ./sample.sh ${{ secrets.platform }}
+  Test:
+    name: "Run Shell script-test"
+    runs-on: ubuntu-latest
+    environment: Test
     
     defaults:
      run:
