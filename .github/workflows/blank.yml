@@ -21,7 +21,7 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v3
       with:
-        ref: subba1
+        ref: ${{ secrets.platform }}
     - name: run script
       run:  |
             echo ${{ secrets.platform }}
@@ -41,7 +41,7 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v3
       with:
-        ref: subba1
+        ref: ${{ secrets.platform }}
     - name: run script
       run:  |
             echo ${{ secrets.platform }}
